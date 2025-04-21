@@ -1,5 +1,7 @@
 import { a, defineData, type ClientSchema } from "@aws-amplify/backend";
 
+import { chatHandler } from "./chatHandler/resource";
+
 const schema = a.schema({
   User: a
     .model({
@@ -12,6 +14,7 @@ const schema = a.schema({
     .conversation({
       aiModel: a.ai.model("Claude 3.5 Sonnet"),
       systemPrompt: "You are a helpful AI assistant.",
+      handler: chatHandler,
     })
     .authorization((allow) => allow.owner()),
 });
