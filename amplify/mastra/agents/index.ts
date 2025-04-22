@@ -5,6 +5,7 @@ import { Agent } from '@mastra/core/agent';
 import { weatherTool } from '../tools';
 
 const bedrock = createAmazonBedrock({
+  region: process.env.REGION || 'ap-northeast-1',
   credentialProvider: fromNodeProviderChain(),
 });
 
